@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confusing & Similar Fields</title>
+</head>
+<body>
+    <h2>Form with Many Similar / Confusing Decoy Fields</h2>
+    <form>
+        <div class="field">
+            <label for="spouse_first_name">Spouse First Name</label>
+            <input id="spouse_first_name" type="text" name="spouse_first_name" />
+        </div>
+        <div class="field">
+            <label for="middle_name">Middle Name</label>
+            <input id="middle_name" type="text" name="middle_name" />
+        </div>
+        <div class="field">
+            <label for="target_first_name">First Name</label>
+            <input id="target_first_name" type="text" name="target_first_name" />
+        </div>
+        <div class="field">
+            <label for="last_name">Last Name</label>
+            <input id="last_name" type="text" name="last_name" />
+        </div>
+        <div class="field">
+            <label>Gender</label>
+            <div>
+                <input type="radio" id="male_radio" name="sex_field" value="Male" />
+                <label for="male_radio">Male</label>
+                <input type="radio" id="female_radio" name="sex_field" value="Female" />
+                <label for="female_radio">Female</label>
+            </div>
+        </div>
+        <div class="field">
+            <label for="state_of_mind">State of Mind</label>
+            <input id="state_of_mind" type="text" name="state_of_mind" />
+        </div>
+        <div class="field">
+            <label for="actual_state">State</label>
+            <select id="actual_state" name="state">
+                <option value="">Select Region</option>
+                <option value="India">India</option>
+                <option value="United States">United States</option>
+            </select>
+        </div>
+    </form>
+</body>
+</html>
+

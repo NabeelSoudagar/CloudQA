@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mutated Attributes & Stripped Classes</title>
+</head>
+<body>
+    <h2>Form with Mutated Attributes</h2>
+    <form>
+        <section>
+            <label>First Name</label>
+            <!-- ID, name, class are completely different from original -->
+            <input id="x78_rnd_txt" name="u_field_29" type="text" placeholder="Given Name" />
+        </section>
+        <section>
+            <label>Gender Selection</label>
+            <div>
+                <input id="rad_a" type="radio" name="grp_demographics" value="Male" />
+                <label for="rad_a">Male</label>
+                <input id="rad_b" type="radio" name="grp_demographics" value="Female" />
+                <label for="rad_b">Female</label>
+            </div>
+        </section>
+        <section>
+            <label>State / Province</label>
+            <select id="dd_region_select" name="f_location_val">
+                <option value="none">-- Choose Region --</option>
+                <option value="IN">India</option>
+                <option value="US">United States</option>
+            </select>
+        </section>
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,1 @@
+Log in as a customer and verify the dashboard is shown

@@ -1,0 +1,1 @@
+Go to https://en.wikipedia.org, search for 'Selenium software', and verify the article contains 'Selenium'

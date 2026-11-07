@@ -103,12 +103,3 @@ python run_test.py --file test_cases/wikipedia_search.txt --headless
 ```
 
 ---
-
-## 🎥 5-Minute Screen Recording Walkthrough
-
-A complete timed script and cue sheet is provided in [`SCREEN_RECORDING_SCRIPT.md`](SCREEN_RECORDING_SCRIPT.md):
-- **0:00 - 0:45**: Introduction & problem statement
-- **0:45 - 2:15**: Task 1 live execution & 5-mutation self-healing demonstration
-- **2:15 - 3:45**: Task 2 customer login execution, Wikipedia test & HTML report
-- **3:45 - 4:45**: In-depth review of approaches and honest engineering limitations
-- **4:45 - 5:00**: Wrap-up and conclusion

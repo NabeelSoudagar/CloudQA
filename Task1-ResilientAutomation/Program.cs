@@ -30,6 +30,7 @@ class Program
         config.GetSection("AutomationSettings").Bind(settings);
 
         // CLI argument overrides
+        bool pauseAtEnd = false;
         for (int i = 0; i < args.Length; i++)
         {
             var arg = args[i].ToLowerInvariant();
@@ -57,6 +58,10 @@ class Program
             {
                 settings.Values.State = args[++i];
             }
+            else if (arg == "--pause" || arg == "--stay-open")
+            {
+                pauseAtEnd = true;
+            }
         }
 
         bool runMutations = args.Any(a => a.Equals("--test-mutations", StringComparison.OrdinalIgnoreCase));
@@ -79,6 +84,27 @@ class Program
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n[RESULT] AUTOMATION COMPLETED SUCCESSFULLY! All 3 fields identified and populated.");
             Console.ResetColor();
+
+            // If running with visible browser, provide observation time for recording
+            if (!settings.Headless)
+            {
+                if (pauseAtEnd)
+                {
+                    Console.WriteLine("\n[Demo] Browser is paused. Press ENTER in this console to close the browser...");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("\n[Demo] Keeping browser open for 6 seconds for visual confirmation...");
+                    for (int sec = 6; sec > 0; sec--)
+                    {
+                        Console.Write($"\rClosing browser in {sec}s... (Tip: use --pause to keep open)   ");
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                    Console.WriteLine();
+                }
+            }
+
             return 0;
         }
         else
@@ -86,6 +112,13 @@ class Program
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\n[RESULT] AUTOMATION ENCOUNTERED FAILURES.");
             Console.ResetColor();
+
+            if (!settings.Headless)
+            {
+                Console.WriteLine("\nPress ENTER to close the browser...");
+                Console.ReadLine();
+            }
+
             return 1;
         }
     }

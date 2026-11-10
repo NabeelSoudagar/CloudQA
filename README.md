@@ -112,3 +112,4 @@ A complete timed script and cue sheet is provided in [`SCREEN_RECORDING_SCRIPT.m
 - **2:15 - 3:45**: Task 2 customer login execution, Wikipedia test & HTML report
 - **3:45 - 4:45**: In-depth review of approaches and honest engineering limitations
 - **4:45 - 5:00**: Wrap-up and conclusion
+

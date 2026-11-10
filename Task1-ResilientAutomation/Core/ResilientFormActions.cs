@@ -42,12 +42,16 @@ public class ResilientFormActions
             ScrollIntoView(el);
             HighlightElement(el);
 
-            // Resilient clear and sendkeys
+            // Resilient clear and animated sendkeys so it's clearly visible on screen
             try
             {
                 el.Click();
                 el.Clear();
-                el.SendKeys(text);
+                foreach (char c in text)
+                {
+                    el.SendKeys(c.ToString());
+                    Thread.Sleep(80); // Animated typing effect visible to human eyes
+                }
             }
             catch (Exception ex) when (ex is ElementClickInterceptedException or WebDriverException)
             {
@@ -55,7 +59,7 @@ public class ResilientFormActions
                 _js.ExecuteScript("arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event('input', {bubbles:true})); arguments[0].dispatchEvent(new Event('change', {bubbles:true}));", el, text);
             }
 
-            Thread.Sleep(_delayMs);
+            Thread.Sleep(Math.Max(_delayMs, 600));
 
             // Verification
             var actual = el.GetAttribute("value") ?? "";
